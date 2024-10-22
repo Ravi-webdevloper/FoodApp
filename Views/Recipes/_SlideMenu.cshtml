@@ -1,0 +1,49 @@
+﻿
+
+@{
+    string[] Arr = new string[33];
+    Arr[0] = "Mushrooms";
+    Arr[1] = "Pumpkin";
+    Arr[2] = "Apple";
+    Arr[3] = "Banana";
+    Arr[4] = "Blackberry";
+    Arr[5] = "Blueberry";
+    Arr[6] = "Coconut";
+    Arr[7] = "Grapes";
+    Arr[8] = "KiwiFruit";
+    Arr[9] = "Mango";
+    Arr[10] = "Orange";
+    Arr[11] = "Papaya";
+    Arr[12] = "Pineapple";
+    Arr[13] = "Strawberry";
+    Arr[14] = "Watermelon";
+    Arr[15] = "Salad";
+    Arr[16] = "Pizza";
+    Arr[17] = "Pasta";
+    Arr[18] = "Popcorn";
+    Arr[19] = "Hamburger";
+    Arr[20] = "Pie";
+    Arr[21] = "Cake";
+    Arr[22] = "Sausage";
+    Arr[23] = "Kebab";
+    Arr[24] = "Poutine";
+    Arr[25] = "Seafood";
+    Arr[26] = "Chips";
+    Arr[27] = "Fries";
+    Arr[28] = "Masala";
+    Arr[29] = "Chicken";
+    Arr[30] = "Chocolate";
+    Arr[31] = "Sushi";
+    Arr[32] = "Ice cream";
+}
+
+<ul class="list-group-flush px-0 vh-100 overflow-auto">
+    @{
+        foreach (string items in Arr)
+        {
+            <li class="recipe-item list-group-item">
+                <a class="text-decoration-none text-dark" href="/Recipes/Search?recipe=@items">@items</a>
+            </li>
+        }
+    }
+</ul>

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<FoodApp.Models.Cart>
+@{
+    ViewData["Title"] = "_CartList";
+}
+
+@foreach(var item in Model)
+{
+    <div class="border-bottom d-flex p-2">
+        <img src="@item.Image_url" class="cartListImg"/>
+        <a class="fw-bold text-dark text-decoration-none px-2" href="/Recipes/Order?id=@item.RecipeId">@(item.Title?.Length >= 15 ? item.Title.Substring(0,14)+"...": item.Title)</a>
+    </div>
+}
+
+<div class="text-center bg-black shadow rounded-1 p-1">
+    <a href="/Cart" class=" text-white fs-5 w-100  text-decoration-none">Go To Cart</a>
+</div>

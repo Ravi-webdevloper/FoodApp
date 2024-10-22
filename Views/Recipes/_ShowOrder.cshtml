@@ -1,0 +1,85 @@
+﻿@model FoodApp.Models.OrderRecipeDetails
+<div class="container-fluid shadow rounded mt-2">
+    <div class="row">
+        <h1>Recipe</h1>
+        <img src="@Model.Image_url" class="w-100" id="order-img" />
+    </div>
+   <div class="row ">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+           <h2 class="text-dark">@Model.Title</h2>
+       </div>
+       @*  <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <button type="button" class="btn btn-sm btn-success p-2">Order</button>
+       </div> *@
+   </div>
+   <div class="row mt-2">
+       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+           <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model.Ingredients)
+                        {
+                            <tr>
+                                <td>@item.Unit</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Unit</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+           </div>
+       </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+           <form autocomplete="off" method="post"  >
+               <input type="hidden" value="@Model.Id" name="RecipeId"/>
+               <input type="hidden" value="@Model.Title" name="RecipeName"/>
+                <input type="hidden" value="@ViewBag.UserId" name="UserId" />
+                <div class="p-2">
+                    <h2 class="text-dark text-muted">Bill Details</h2>
+                    <div class="row border-bottom">
+                        <label class="col-10 col-form-label">Price</label>
+                        <div class="col-2">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            <input type="text" name="Price" value="@ViewBag.Price" class="text-muted" readonly id="price" />
+
+                        </div>
+                    </div>
+                    <div id="allqty" class="row border-bottom">
+                        <label class="col-9 col-form-label text-muted">Quantity</label>
+                        <div class="col-3 border border-success border-2 rounded">
+                            <span onclick="quantity('inc')"><i class="fa-solid fa-plus fw-bold text-success"></i></span>
+                            <input type="text" id="qty" class="form-control w-50 d-inline border-0 bg-white text-center fw-bold text-success" value="1" name="Quantity" readonly />
+                            <span onclick="quantity('dec')"><i class="fa-solid fa-minus fw-bold text-success"></i></span>
+                        </div>
+                    </div>
+                    <div class="row border-bottom">
+                        <label class="col-10 col-form-label text-muted">Delivery Charge</label>
+                        <label class="col-2 col-form-label text-success fw-bold">Free</label>
+                    </div>
+                    <div class=" mb-2">
+                        <label class="form-label text-muted">Delivery Address</label>
+                        <input class="form-control" name="Address" value="@ViewBag.Address">
+                        @Html.ValidationMessage("Address is required")
+                    </div>
+                    <div class="row border-top border-dark  border-1">
+                        <label class="col-10 col-form-label fs-5 fw-bold text-muted">Total</label>
+                        <div class="col-2 col-form-label  fw-bold">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            <input id="totalamount" type="text" name="TotalAmount" readonly value="@ViewBag.Price">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <input type="submit" class="btn btn-primary btn-sm" value="Order"/>
+                    </div>
+                </div>
+           </form>
+       </div>
+   </div>
+</div>

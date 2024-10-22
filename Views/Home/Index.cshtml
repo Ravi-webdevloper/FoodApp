@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row shadow rounded-1">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/Images/CarouslImages/istockphoto-1203315556-2048x2048.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/Images/CarouslImages/istockphoto-1205796504-2048x2048.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/CarouslImages/istockphoto-1316914951-2048x2048.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/CarouslImages/istockphoto-1481920748-2048x2048.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/CarouslImages/pexels-chanwalrus-958545.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="mb-3">
+                <h2>Get The Best <span class="text-success fst-italic">food</span> from 
+                    <span class="text-success">best restaurants</span></h2>
+            </div>
+            <div class="mb-3 pb-3">
+                <span><i class="fa-solid fa-seedling text-success mx-2 fs-4"></i></span>
+                <span class="fs-5 text-dark">Fresh Food</span>
+            </div>
+            <div class="mb-3 pb-3">
+                <span><i class="fa-solid fa-wheat-awn text-success mx-2 fs-4"></i></span>
+                <span class="fs-5 text-dark fst-italic">Healthy Food</span>
+            </div>
+            <div class="mb-3 pb-3">
+                <span><i class="fa-solid fa-person-biking text-success mx-2 fs-4"></i></span>
+                <span class="fs-5 text-dark  fst-italic">Fastest Delivery</span>
+                <p class="py-2  fst-italic">We Promise Deliver Your Order Within 30 minutes</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-3">
+            <h2 class="text-dark fst-italic">Today's Special</h2>
+            <div id="todayspecial" class="row mt-3">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div id="dishCard" class="card shadow rounded">
+                        <img class="card-img-top h-50" src="https://forkify-api.herokuapp.com/images/BBQChickenPizzawithCauliflowerCrust5004699695624ce.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold fs-6 text-dark">Pizza</p>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipes/Order?id=664c8f193e7aa067e94e8438" class="btn btn-sm btn-primary">Order</a>
+                                <span class="addToCartIcon" onclick="cart.call(this)" data-recipeId="664c8f193e7aa067e94e8438"><i class="fa-regular fa-heart fs-4"></i></span>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div id="dishCard" class="card shadow rounded">
+                        <img class="card-img-top h-50" src="https://forkify-api.herokuapp.com/images/gelatin_poke_cake2d07.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold">Cake</p>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipes/Order?id=664c8f193e7aa067e94e893a" class="btn btn-sm btn-primary">Order</a>
+                                <span class="addToCartIcon" onclick="cart.call(this)" data-recipeId="664c8f193e7aa067e94e893a"><i class="fa-regular fa-heart fs-4"></i></span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div id="dishCard" class="card shadow rounded">
+                        <img class="card-img-top h-50" src="https://forkify-api.herokuapp.com/images/344130b63.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title  fw-bold">Strawberry</p>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipes/Order?id=664c8f193e7aa067e94e8421" class="btn btn-sm btn-primary">Order</a>
+                                <span class="addToCartIcon" onclick="cart.call(this)" data-recipeId="664c8f193e7aa067e94e8421"><i class="fa-regular fa-heart fs-4"></i></span>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
