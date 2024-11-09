@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Identity;
+@using FoodApp.Repository
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.EntityFrameworkCore
+
+@inject UserManager<ApplicationUser> _userManager;
+@inject SignInManager<ApplicationUser> _signInManager;
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -32,9 +43,21 @@
                             <a class="ulitems nav-link " asp-area="">Menu</a>
                         </li>
                     </ul>
+                    @* pankaj123@gmail.com uppankaj123@gmail.com
+                    Pankaj@123 *@
                     @if (User.Identity!.IsAuthenticated)
                     {
-                        <div class="d-flex justify-content-around">
+                        <div class="dropdown mx-3 ">
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                Account Center
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-white fw-bold rounded shadow text-primary" aria-labelledby="dropdownMenuButton2">
+                                <li><a class=" nav-link fs-6  fw-bold" asp-area="" asp-controller="Account" asp-action="Update" )"><span>@User.Identity?.Name</span></a></li>
+                                <li><a class="dropdown-item" href="#">Order</a></li>
+                            </ul>
+                        </div>
+                       <div class="d-flex justify-content-around">
+                            
                            <div class="text-center">
                                 <span id="cartListIcon" ><i class="fa-solid fa-cart-shopping text-danger fs-4" aria-hidden="true"></i></span>
                                 <div id="showCartList" class="position-absolute shadow-lg rounded p-2 bg-white">
@@ -42,6 +65,7 @@
                                 </div>
                            </div>
                            <div>
+                                
                                 <a class="nav-link fw-bold text-danger" asp-controller="Account" asp-action="LogOut">Logout</a>
                            </div>
                        </div>

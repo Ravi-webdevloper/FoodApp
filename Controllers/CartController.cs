@@ -34,6 +34,7 @@ namespace FoodApp.Controllers
             {
                 await _context.Carts.AddAsync(cart);
                 await _context.SaveChangesAsync();
+                TempData["CartAdd"] = "Recipe Added Successfully to cart";
                 return Ok();
             }
             return BadRequest();
